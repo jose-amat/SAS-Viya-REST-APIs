@@ -1,13 +1,13 @@
 SAS Viya REST APIs
 ==================
 
-SAS Viya REST APIs, or simply Viya API, is nothing more than a REST API, which is made available by SAS to the entire developing community, and to data scientists who are already accustomed to working with open source tools.
+SAS Viya REST APIs, or simply Viya API, is nothing more than a REST API which is made available by SAS to the entire developing community and to data scientists who are already accustomed to working with open source tools.
 
 In short, API (Application Programming Interface) is a system responsible for communication between a client and a server. REST (Representational State Transfer) is every API that follows the following standards, using the HTTP protocol:
 
 1) Client-server
-2) Stateless, Texas
-3) Cacheable, New
+2) Stateless
+3) Cacheable
 4) Layered System
 5) Code on demand (Optional)
 
@@ -21,16 +21,16 @@ It is worth remembering that it is always good to consult the official documenta
 
 
 # Summary
-- [Authentication and Access Tokens](#Authentication-and-Access-Tokens)
-  - [Introduction](#Introduction)
-  - [Registering a Client](#Registering-a-Client)
-    - [Consul Token](#Consul-Token)
-    - [Oauth token](#Oauth-token)
-    - [Registering a Client](#Registering-a-Client-1)
-  - [Getting an Access Token](#Getting-an-Access-Token)
-    - [Using CURL](#Using-CURL)
-    - [Using Python](#Using-Python)
-  - [References](#References)
+- [Authentication and Access Tokens](#authentication-and-access-tokens)
+  - [Introduction](#introduction)
+  - [Registering a Client](#registering-a-client)
+    - [Consul Token](#consul-token)
+    - [Oauth token](#oauth-token)
+    - [Registering a Client](#registering-a-client-1)
+  - [Getting an Access Token](#getting-an-access-token)
+    - [Using CURL](#using-curl)
+    - [Using Python](#using-python)
+  - [References](#references)
 
 
 # Authentication and Access Tokens
@@ -38,7 +38,7 @@ It is worth remembering that it is always good to consult the official documenta
 ## Introduction
 The authentication step is the first step you should take if you think about making use of the Viya SAS APIs. Every time you make a request (GET/POST/PUT/DELETE) to Viya, an access key is required for call validation. We call this access key `access_token`, and it is generated only once per session, and a duration can be set until it expires.
 
-To generate a `access_token` you need to register a client on the Viya server. It is on top of this register that the `access_token` that will be used to validate every request made by our application will be generated.
+To generate an `access_token` you need to register a client on the Viya server. It within of this register that the `access_token` that will be used to validate every request made by our application will be generated.
 
 This step may seem a bit complicated (it really is complicated) by having a large authentication and security system, but isn't this the price of having a robust security process? In addition, there are several tools that have already been developed to make our lives easier during authentication. I leave here the [link](http://sww.sas.com/blogs/wp/gate/37070/sas-viya-3-5-calling-rest-apis-demo-application) of the blog written by Mary Kathryn Queen about a fantastic tool for authentication (Only for SAS Employees).
 
@@ -52,7 +52,7 @@ It is essential to take into account 4 things:
 4) Have The Setting Cross-Origin Resource Sharing (CORS) option enabled (To enable this option you can follow the instructions on the [website](https://developer.sas.com/reference/cors/)).
 
 ## Registering a Client
-The  registration client is a unique process that we will do within the server to configure the client's name, client password, and even the validity time of each `access_token`.
+The  registration client is a unique process that we will do within the server to configure the client name, client password, and even the validity time of each `access_token`.
 
 ### Consul Token
 Go to your server and make sure you log in with a user of the sas group, or simply go as sudo:
@@ -73,7 +73,7 @@ cat client.token
 ```
 
 ### Oauth token
-`Oauth` is an authentication standard that protects our credentials when sending information using HTTP protocol. It is for the purpose of security that the SAS provides an `Oauth token` will allow us to register our application securely. To get it we need to provide 2 things:
+`Oauth` is an authentication standard that protects our credentials when sending information using HTTP protocol. It is for the purpose of security that SAS provides an `Oauth token` to allow us to securely register our client. To get it, we need to provide two things:
 
 1) A name that will later be assigned to the registered client. If you are creating an application for Open Banking that name is OpenBankingApp, but for educational purposes we will use the app name.
 2) The `consul token` obtained in the previous step.
