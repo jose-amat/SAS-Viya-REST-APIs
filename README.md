@@ -15,7 +15,7 @@ Working with this set of APIs can give a lot of advantage when using SAS in some
 
 For the developer and data science public, APIs are the foundation of several libraries capable of integrating languages such as Python, Lua, R, and Java, directly with SAS Viya.
 
-That's why, if you're interested in understanding how this integration works, I invite you to continue reading this handy guide on how to consume viya APIs on any web service.
+That's why, if you're interested in understanding how this integration works, I encourage you to continue reading this handy guide on how to consume viya APIs on any web service.
 
 It is worth remembering that it is always good to consult the official documentation that is in the link: https://developer.sas.com/apis/rest/
 
